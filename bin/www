@@ -1,0 +1,12 @@
+const app = require("../app");
+
+const normalizePort = () => {
+  const port = parseInt(process.env.PORT, 10);
+  if (Number.isNaN(port) && typeof process.env.PORT !== "undefined")
+    return process.env.PORT;
+  if (port >= 0) return port;
+  return 3000;
+};
+const port = normalizePort();
+const hostname = process.env.HOSTNAME || "localhost";
+app.listen(port, () => console.log(`Server listening on ${hostname}:${port}`));
